@@ -17,6 +17,7 @@ module "aws_ha_vpc" "vpc" {
   tags = {
     Key = "Value"
   }
+}
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
