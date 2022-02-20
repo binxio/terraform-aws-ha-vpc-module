@@ -57,7 +57,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cidr"></a> [cidr](#input\_cidr) | Classless Inter-Domain Routing (CIDR) block | `string` | n/a | yes |
+| <a name="input_cidr_block"></a> [cidr\_block](#input\_cidr\_block) | Classless Inter-Domain Routing (CIDR) block | `string` | n/a | yes |
 | <a name="input_enable_dns_hostnames"></a> [enable\_dns\_hostnames](#input\_enable\_dns\_hostnames) | Enable DNS hostnames | `bool` | `false` | no |
 | <a name="input_enable_dns_support"></a> [enable\_dns\_support](#input\_enable\_dns\_support) | Enable DNS support | `bool` | `true` | no |
 | <a name="input_subnet_newbits"></a> [subnet\_newbits](#input\_subnet\_newbits) | Subnet mask bits | `string` | n/a | yes |

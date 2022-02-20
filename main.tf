@@ -1,6 +1,6 @@
 # VPC
 resource "aws_vpc" "main" {
-  cidr_block = var.cidr
+  cidr_block = var.cidr_block
 
   enable_dns_support   = var.enable_dns_support
   enable_dns_hostnames = var.enable_dns_hostnames
@@ -17,7 +17,7 @@ resource "aws_subnet" "public_subnet" {
   count = length(data.aws_availability_zones.available.names)
 
   vpc_id            = aws_vpc.main.id
-  cidr_block        = cidrsubnet(var.cidr, var.subnet_newbits, count.index)
+  cidr_block        = cidrsubnet(var.cidr_block, var.subnet_newbits, count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
   tags = {
@@ -31,7 +31,7 @@ resource "aws_subnet" "private_subnet" {
   count = length(data.aws_availability_zones.available.names)
 
   vpc_id            = aws_vpc.main.id
-  cidr_block        = cidrsubnet(var.cidr, var.subnet_newbits, length(aws_subnet.public_subnet.*.id) + count.index)
+  cidr_block        = cidrsubnet(var.cidr_block, var.subnet_newbits, length(aws_subnet.public_subnet.*.id) + count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
   tags = merge(local.tags,

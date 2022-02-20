@@ -1,4 +1,4 @@
-variable "cidr" {
+variable "cidr_block" {
   type        = string
   description = "Classless Inter-Domain Routing (CIDR) block"
 }
