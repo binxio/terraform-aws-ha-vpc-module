@@ -2,6 +2,8 @@
 
 ## Description
 
+> This module is still under active development
+
 This Terraform module creates a full-fledged highly available AWS VPC.
 
 ### Usage
