@@ -13,3 +13,15 @@ variable "subnet_newbits" {
   type        = string
   description = "Subnet mask bits"
 }
+
+variable "enable_dns_support" {
+  type        = bool
+  default     = true
+  description = "Enable DNS support"
+}
+
+variable "enable_dns_hostnames" {
+  type        = bool
+  default     = false
+  description = "Enable DNS hostnames"
+}
