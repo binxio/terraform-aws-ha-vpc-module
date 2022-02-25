@@ -29,7 +29,7 @@ module "aws_ha_vpc" "vpc" {
 
 ### How to use
 
-We create a public and private availability zone in every availability zone of a particular region (the private subnets are created on top of the already calculated public). To calculate the cidr block of a subnet, we use the following formula:
+We create a public and private availability zone in every availability zone of a particular region (the private subnets are created on top of the already calculated public subnet cidr ranges). To calculate the cidr block of a subnet, we use the following formula:
 
 ```sh
 cidrsubnet(var.cidr_block, var.subnet_newbits, availability_zone_count)
