@@ -6,9 +6,9 @@ This Terraform module creates a full-fledged highly available AWS VPC.
 
 ```
 module "aws_ha_vpc" "vpc" {
-  source = "binxio/terraform-aws-ha-vpc-module"
+  source = "github.com/binxio/terraform-aws-ha-vpc-module"
 
-  cidr = "10.0.0.0/20"
+  cidr_block = "10.0.0.0/20"
   subnet_newbits = 4
   enable_dns_hostnames = true
   enable_dns_support = true
