@@ -2,6 +2,15 @@
 
 This Terraform module creates a full-fledged highly available AWS VPC.
 
+### Features
+
+- Public subnets in every availability zone
+- Private subnets in every availability zone
+- NAT Gateway in every availability zone
+- Internet gateway
+- Custom configured route table for public subnets
+- Custom configured route tables for every private subnet
+
 ### Usage
 
 ```
