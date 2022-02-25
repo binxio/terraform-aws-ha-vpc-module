@@ -1,9 +1,5 @@
 # Terraform AWS HA VPC Module
 
-> This module is still under active development
-
-## Description
-
 This Terraform module creates a full-fledged highly available AWS VPC.
 
 ### Usage
