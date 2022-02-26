@@ -27,7 +27,7 @@ module "aws_ha_vpc" "vpc" {
 }
 ```
 
-### How to use
+### How subnets are calculated
 
 We create a public and private availability zone in every availability zone of a particular region (the private subnets are created on top of the already calculated public subnet cidr ranges). To calculate the cidr block of a subnet, we use the following formula:
 
