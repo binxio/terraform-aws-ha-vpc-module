@@ -16,14 +16,17 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "public_subnet" {
   count = length(data.aws_availability_zones.available.names)
 
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = cidrsubnet(var.cidr_block, var.subnet_newbits, count.index)
-  availability_zone = data.aws_availability_zones.available.names[count.index]
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = cidrsubnet(var.cidr_block, var.subnet_newbits, count.index)
+  availability_zone       = data.aws_availability_zones.available.names[count.index]
+  map_public_ip_on_launch = true
 
-  tags = {
-    Name  = "public-subnet-${substr(data.aws_availability_zones.available.names[count.index], -2, -1)}"
-    Owner = "Terraform"
-  }
+  tags = merge(local.tags,
+    {
+      "Name"         = "public-subnet-${substr(data.aws_availability_zones.available.names[count.index], -2, -1)}"
+      "Connectivity" = "Public"
+    }
+  )
 }
 
 # Private subnets
@@ -36,7 +39,8 @@ resource "aws_subnet" "private_subnet" {
 
   tags = merge(local.tags,
     {
-      "Name" = "private-subnet-${substr(data.aws_availability_zones.available.names[count.index], -2, -1)}"
+      "Name"         = "private-subnet-${substr(data.aws_availability_zones.available.names[count.index], -2, -1)}"
+      "Connectivity" = "Private"
     }
   )
 }
