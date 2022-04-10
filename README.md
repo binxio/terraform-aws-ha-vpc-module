@@ -2,6 +2,8 @@
 
 This Terraform module creates a full-fledged highly available AWS VPC.
 
+> This module is still under development.
+
 ### Features
 
 - Public subnets in every availability zone
@@ -19,8 +21,6 @@ module "aws_ha_vpc" {
 
   cidr_block = "10.0.0.0/20"
   subnet_newbits = 4
-  enable_dns_hostnames = true
-  enable_dns_support = true
   tags = {
     Key = "Value"
   }
