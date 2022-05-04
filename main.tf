@@ -2,8 +2,7 @@
 resource "aws_vpc" "main" {
   cidr_block = var.cidr_block
 
-  enable_dns_support   = var.enable_dns_support
-  enable_dns_hostnames = var.enable_dns_hostnames
+  enable_dns_support = var.enable_dns_support
 
   tags = merge(local.tags,
     {
@@ -131,16 +130,20 @@ resource "aws_route_table_association" "private_subnets" {
 }
 
 # Route to Internet Gateway in public route table
-resource "aws_route_table_association" "crt_igw" {
-  gateway_id     = aws_internet_gateway.igw.id
-  route_table_id = aws_route_table.public_crt.id
+resource "aws_route" "igw" {
+  count = length(aws_route_table.public_crt.*.id)
+
+  route_table_id         = aws_route_table.public_crt.*.id[count.index]
+  destination_cidr_block = local.quad_zero_route
+  nat_gateway_id         = aws_internet_gateway.igw.id
 }
+
 
 # Route to NAT Gateway in private route tables
 resource "aws_route" "ngw" {
   count = length(aws_route_table.private_crt.*.id)
 
   route_table_id         = aws_route_table.private_crt.*.id[count.index]
-  destination_cidr_block = "0.0.0.0/0"
+  destination_cidr_block = local.quad_zero_route
   nat_gateway_id         = aws_nat_gateway.ngw.*.id[count.index]
 }
