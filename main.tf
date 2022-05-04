@@ -135,7 +135,7 @@ resource "aws_route" "igw" {
 
   route_table_id         = aws_route_table.public_crt.*.id[count.index]
   destination_cidr_block = local.quad_zero_route
-  nat_gateway_id         = aws_internet_gateway.igw.id
+  gateway_id         = aws_internet_gateway.igw.id
 }
 
 
