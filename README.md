@@ -95,12 +95,13 @@ No modules.
 
 ## Inputs
 
-| Name                                                                                    | Description                                 | Type       | Default | Required |
-| --------------------------------------------------------------------------------------- | ------------------------------------------- | ---------- | ------- | :------: |
-| <a name="input_cidr_block"></a> [cidr_block](#input_cidr_block)                         | Classless Inter-Domain Routing (CIDR) block | `string`   | n/a     |   yes    |
-| <a name="input_enable_dns_support"></a> [enable_dns_support](#input_enable_dns_support) | Enable DNS support                          | `bool`     | `true`  |    no    |
-| <a name="input_subnet_newbits"></a> [subnet_newbits](#input_subnet_newbits)             | Subnet mask bits                            | `string`   | n/a     |   yes    |
-| <a name="input_tags"></a> [tags](#input_tags)                                           | Tags that will be applied to all resources  | `map(any)` | `{}`    |    no    |
+| Name                                                                                          | Description                                 | Type       | Default | Required |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------- | ------- | :------: |
+| <a name="input_cidr_block"></a> [cidr_block](#input_cidr_block)                               | Classless Inter-Domain Routing (CIDR) block | `string`   | n/a     |   yes    |
+| <a name="input_enable_dns_support"></a> [enable_dns_support](#input_enable_dns_support)       | Enable DNS support                          | `bool`     | `true`  |    no    |
+| <a name="input_enable_dns_hostnames"></a> [enable_dns_hostnames](#input_enable_dns_hostnames) | Enable DNS hostnames                        | `bool`     | `false` |    no    |
+| <a name="input_subnet_newbits"></a> [subnet_newbits](#input_subnet_newbits)                   | Subnet mask bits                            | `string`   | n/a     |   yes    |
+| <a name="input_tags"></a> [tags](#input_tags)                                                 | Tags that will be applied to all resources  | `map(any)` | `{}`    |    no    |
 
 ## Outputs
 
